@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_complete_working/sign_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -90,7 +91,8 @@ class _MyAppState extends State<MyApp> {
               padding: const EdgeInsets.all(20),
               child: TextFormField(
                 decoration: InputDecoration(
-                  hintText: "Email",
+                  hintText: "Enter your email",
+                  labelText: "Email",
                   fillColor: Colors.grey[150],
                   filled: true,
                   prefixIcon: Icon(Icons.email),
@@ -105,7 +107,8 @@ class _MyAppState extends State<MyApp> {
               padding: const EdgeInsets.all(20),
               child: TextFormField(
                 decoration: InputDecoration(
-                  hintText: "Password",
+                  hintText: "Enter your password",
+                  labelText: "Password",
                   fillColor: Colors.grey[150],
                   filled: true,
                   prefixIcon: Icon(Icons.lock),
@@ -159,11 +162,20 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Don't have an account?", textAlign: TextAlign.center),
-                Text(
-                  "SignUp",
-                  style: TextStyle(
-                    color: Colors.orange,
-                    fontWeight: FontWeight.bold,
+                OutlinedButton(
+                  onPressed: () {
+                    print("pressed");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUp()),
+                    );
+                  },
+                  child: Text(
+                    "SignUp",
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 )
               ],
